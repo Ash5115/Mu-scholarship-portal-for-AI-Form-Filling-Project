@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Step 1: Personal Details</h2>
+
+<form method="POST">
+
+    <label>Full Name</label><br>
+    <input type="text" name="full_name" required><br><br>
+
+    <label>Date of Birth</label><br>
+    <input type="date" name="dob" required><br><br>
+
+    <label>Gender</label><br>
+    <select name="gender" required>
+        <option value="">Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+    </select><br><br>
+
+    <label>Mobile Number</label><br>
+    <input type="tel" name="mobile" required><br><br>
+
+    <label>Email</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <!-- IMPORTANT FIELDS -->
+    <label>Aadhaar Number</label><br>
+    <input type="text" name="aadhaar_number" id="aadhaar_number" required><br><br>
+
+    <label>PAN Number</label><br>
+    <input type="text" name="pan_number" id="pan_number" required><br><br>
+
+    <label>Address</label><br>
+    <textarea name="address" required></textarea><br><br>
+
+    <label>City</label><br>
+    <input type="text" name="city" required><br><br>
+
+    <label>Pincode</label><br>
+    <input type="text" name="pincode" required><br><br>
+
+    <button type="submit" class="btn">Next</button>
+
+</form>
+
+{% endblock %}

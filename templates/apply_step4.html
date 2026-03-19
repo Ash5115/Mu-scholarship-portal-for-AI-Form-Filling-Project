@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Step 4: Upload Documents</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+    <label>Aadhaar Card</label><br>
+    <input type="file" name="aadhaar_doc" required><br><br>
+
+    <label>PAN Card</label><br>
+    <input type="file" name="pan_doc" required><br><br>
+
+    <label>College ID</label><br>
+    <input type="file" name="college_id_doc" required><br><br>
+
+    <label>Income Certificate</label><br>
+    <input type="file" name="income_doc" required><br><br>
+
+    <label>Marksheet</label><br>
+    <input type="file" name="marksheet_doc" required><br><br>
+
+    <label>Bank Passbook</label><br>
+    <input type="file" name="passbook_doc" required><br><br>
+
+    <label>Passport Photo</label><br>
+    <input type="file" name="photo_doc" required><br><br>
+
+    <label>Domicile Certificate</label><br>
+    <input type="file" name="domicile_doc" required><br><br>
+
+    <button type="submit" class="btn">Next</button>
+
+</form>
+
+{% endblock %}

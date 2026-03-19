@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MU Scholarship Portal</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Serif', serif;
+            background: #f5f7fa;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #0D2137;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0D2137;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        /* Container */
+        .container {
+            padding: 40px;
+        }
+
+        /* Button */
+        .btn {
+            background: #C9A84C;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .step {
+            text-align: center;
+            flex: 1;
+        }
+
+        .step span {
+            display: inline-block;
+            background: gray;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            line-height: 30px;
+        }
+
+        .step.active span {
+            background: #C9A84C;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>Mumbai University</h2>
+        <div class="nav-links">
+            <a href="/">Home</a>
+           <a href="/status">Check Status</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Progress Bar (only for apply pages) -->
+        {% if current_step %}
+        <div class="progress-bar">
+            <div class="step {% if current_step >= 1 %}active{% endif %}">
+                <span>1</span><br>Personal
+            </div>
+            <div class="step {% if current_step >= 2 %}active{% endif %}">
+                <span>2</span><br>Academic
+            </div>
+            <div class="step {% if current_step >= 3 %}active{% endif %}">
+                <span>3</span><br>Financial
+            </div>
+            <div class="step {% if current_step >= 4 %}active{% endif %}">
+                <span>4</span><br>Documents
+            </div>
+            <div class="step {% if current_step >= 5 %}active{% endif %}">
+                <span>5</span><br>Review
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Page Content -->
+        {% block content %}{% endblock %}
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        This is a test portal for academic purposes only
+    </div>
+
+</body>
+</html>

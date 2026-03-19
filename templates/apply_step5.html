@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Step 5: Review Your Application</h2>
+
+<h3>Personal Details</h3>
+<p><b>Name:</b> {{ data.step1.full_name }}</p>
+<p><b>Aadhaar:</b> {{ data.step1.aadhaar_number }}</p>
+<p><b>PAN:</b> {{ data.step1.pan_number }}</p>
+
+<h3>Academic Details</h3>
+<p><b>College:</b> {{ data.step2.college_name }}</p>
+<p><b>Course:</b> {{ data.step2.course_name }}</p>
+
+<h3>Bank Details</h3>
+<p><b>Account Number:</b> {{ data.step3.bank_account }}</p>
+<p><b>IFSC:</b> {{ data.step3.ifsc_code }}</p>
+
+<h3>Uploaded Documents</h3>
+<ul>
+    {% for key, file in data.step4.items() %}
+        <li>{{ key }} → {{ file }}</li>
+    {% endfor %}
+</ul>
+
+<form method="POST" action="/apply/submit">
+    <input type="checkbox" required> I confirm all details are correct<br><br>
+    <button type="submit" class="btn">Submit Application</button>
+</form>
+
+{% endblock %}
